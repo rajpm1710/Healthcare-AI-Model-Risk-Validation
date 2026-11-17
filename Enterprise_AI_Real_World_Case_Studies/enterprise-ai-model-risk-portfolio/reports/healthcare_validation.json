@@ -1,0 +1,76 @@
+{
+  "case_study": "Synthetic 30-day hospital readmission model validation",
+  "data_provenance": "Entirely synthetic; no CVS Health data",
+  "records": 3500,
+  "prevalence_test": 0.0429,
+  "champion": {
+    "roc_auc": 0.6392,
+    "pr_auc": 0.0933,
+    "brier_score": 0.0424,
+    "precision": 0.1045,
+    "recall": 0.1556,
+    "false_positive_rate": 0.0597,
+    "positive_rate": 0.0638
+  },
+  "logistic_challenger": {
+    "roc_auc": 0.7042,
+    "pr_auc": 0.0966,
+    "brier_score": 0.0409,
+    "precision": 0.0811,
+    "recall": 0.0667,
+    "false_positive_rate": 0.0338,
+    "positive_rate": 0.0352
+  },
+  "fairness_audit_by_simulated_group": {
+    "Group A": {
+      "sample_size": 515,
+      "roc_auc": 0.6525,
+      "pr_auc": 0.0761,
+      "brier_score": 0.0413,
+      "precision": 0.0833,
+      "recall": 0.1429,
+      "false_positive_rate": 0.0668,
+      "positive_rate": 0.0699
+    },
+    "Group B": {
+      "sample_size": 535,
+      "roc_auc": 0.6286,
+      "pr_auc": 0.1195,
+      "brier_score": 0.0435,
+      "precision": 0.129,
+      "recall": 0.1667,
+      "false_positive_rate": 0.0528,
+      "positive_rate": 0.0579
+    }
+  },
+  "audit_note": "Group metrics are descriptive; no fairness conclusion without uncertainty, context and policy review.",
+  "feature_importance_permutation_auc": [
+    {
+      "feature": "prior_admissions",
+      "importance": 0.0641
+    },
+    {
+      "feature": "age",
+      "importance": 0.0258
+    },
+    {
+      "feature": "medication_adherence",
+      "importance": 0.0231
+    },
+    {
+      "feature": "chronic_conditions",
+      "importance": 0.0214
+    },
+    {
+      "feature": "followup_completed",
+      "importance": 0.0116
+    }
+  ],
+  "stress_scenario_prior_admissions_psi": 5.3015,
+  "limitations": [
+    "Synthetic data and simulated labels are not clinical evidence",
+    "Random holdout does not establish prospective temporal validity",
+    "Calibration and subgroup performance require confidence intervals before deployment",
+    "Not a medical device or clinical decision support system"
+  ]
+}

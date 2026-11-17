@@ -1,0 +1,94 @@
+{
+  "case_study": "Synthetic enterprise software license-renewal churn prediction",
+  "data_provenance": "Entirely synthetic; no VMware customer data",
+  "records": 4000,
+  "test_churn_rate": 0.3758,
+  "gradient_boosting": {
+    "roc_auc": 0.6385,
+    "pr_auc": 0.5243,
+    "brier_score": 0.2242,
+    "precision": 0.5413,
+    "recall": 0.3636,
+    "false_positive_rate": 0.1856,
+    "positive_rate": 0.2525
+  },
+  "logistic_regression_baseline": {
+    "roc_auc": 0.6786,
+    "pr_auc": 0.5748,
+    "brier_score": 0.2115,
+    "precision": 0.6306,
+    "recall": 0.3747,
+    "false_positive_rate": 0.1322,
+    "positive_rate": 0.2233
+  },
+  "risk_quintiles": [
+    {
+      "tier": "Q1 low",
+      "accounts": 240,
+      "observed_churn_rate": 0.2292,
+      "mean_predicted_risk": 0.1557
+    },
+    {
+      "tier": "Q2",
+      "accounts": 240,
+      "observed_churn_rate": 0.3167,
+      "mean_predicted_risk": 0.2645
+    },
+    {
+      "tier": "Q3",
+      "accounts": 240,
+      "observed_churn_rate": 0.3458,
+      "mean_predicted_risk": 0.3595
+    },
+    {
+      "tier": "Q4",
+      "accounts": 240,
+      "observed_churn_rate": 0.4292,
+      "mean_predicted_risk": 0.4718
+    },
+    {
+      "tier": "Q5 high",
+      "accounts": 240,
+      "observed_churn_rate": 0.5583,
+      "mean_predicted_risk": 0.6462
+    }
+  ],
+  "feature_importance_permutation_auc": [
+    {
+      "feature": "product_utilization",
+      "importance": 0.0437
+    },
+    {
+      "feature": "support_tickets_90d",
+      "importance": 0.0392
+    },
+    {
+      "feature": "critical_incidents_90d",
+      "importance": 0.0245
+    },
+    {
+      "feature": "feature_adoption",
+      "importance": 0.0111
+    },
+    {
+      "feature": "price_increase_pct",
+      "importance": 0.0075
+    },
+    {
+      "feature": "licensed_seats",
+      "importance": -0.003
+    },
+    {
+      "feature": "days_to_renewal",
+      "importance": -0.0073
+    }
+  ],
+  "simulated_usage_drop_psi": 2.5669,
+  "business_action": "Prioritize human customer-success review for top-risk accounts; avoid automated account actions.",
+  "limitations": [
+    "Synthetic outcomes and features; no actual business ROI established",
+    "Random holdout rather than forward-looking renewal cohort",
+    "No cost-sensitive decision threshold or causal intervention analysis",
+    "Risk scores require calibration and monitoring before use"
+  ]
+}
